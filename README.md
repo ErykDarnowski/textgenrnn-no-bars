@@ -1,5 +1,19 @@
 # textgenrnn
 
+## Usage
+
+In order to use this fork in your project, install it like so:
+
+```bash
+# make sure you have git installed
+pip install git+https://github.com/ErykDarnowski/textgenrnn-no-bars/
+```
+
+\*See `example.py` script for how to do no bars during generation but show some during training
+
+---
+---
+
 ![dank text](/docs/textgenrnn_console.gif)
 
 Easily train your own text-generating neural network of any size and complexity on any text dataset with a few lines of code, or quickly train on a text using a pretrained model.
