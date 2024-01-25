@@ -3,7 +3,6 @@ import re
 
 import numpy as np
 import tensorflow as tf
-import tqdm
 from pkg_resources import resource_filename
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
@@ -85,8 +84,9 @@ class textgenrnn:
                  temperature=[1.0, 0.5, 0.2, 0.2],
                  max_gen_length=300, interactive=False,
                  top_n=3, progress=True):
+
         gen_texts = []
-        iterable = tqdm.trange(n) if progress and n > 1 else range(n)
+        iterable = range(n) if progress and n > 1 else range(n)
         for _ in iterable:
             gen_text, _ = textgenrnn_generate(self.model,
                                               self.vocab,
@@ -109,8 +109,8 @@ class textgenrnn:
 
     def generate_samples(self, n=3, temperatures=[0.2, 0.5, 1.0], **kwargs):
         for temperature in temperatures:
-            print('#'*20 + '\nTemperature: {}\n'.format(temperature) +
-                  '#'*20)
+            print('#'*17 + '\nTemperature: {}\n'.format(temperature) +
+                  '#'*17 + '\n')
             self.generate(n, temperature=temperature, progress=False, **kwargs)
 
     def train_on_texts(self, texts, context_labels=None,

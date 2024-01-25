@@ -7,7 +7,6 @@ from tensorflow.keras import backend as K
 from tensorflow.keras.callbacks import Callback
 from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing import sequence
-from tqdm import trange
 
 
 def textgenrnn_sample(preds, temperature, interactive=False, top_n=3):
@@ -238,7 +237,7 @@ def synthesize(textgens, n=1, return_as_list=False, prefix='',
     """
 
     gen_texts = []
-    iterable = trange(n) if progress and n > 1 else range(n)
+    iterable = range(n) if progress and n > 1 else range(n)
     for _ in iterable:
         shuffle(textgens)
         gen_text = prefix
